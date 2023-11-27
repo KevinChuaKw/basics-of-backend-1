@@ -1,0 +1,14 @@
+{
+  "name": "01-node-demo",
+  "version": "1.0.0",
+  "description": "1. Make sure you are the current folder (i.e the current working directory) 2. `npm init` to create a new NodeJS application or `npm init -y` to skip all the questions 3. Install Express with `npm install express` 4. Create a new `.gitignore` file and add the following: `node_modules`",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
