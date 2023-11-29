@@ -6,6 +6,8 @@
 5. For your GITPOD, run `npm install -g nodemon` everytime you restart gidpod but 
 if is usingyour own computer, then just once. The `-g` means `global` -- it will be 
 applied to all node applications
+6. To stop the server 'control + c`
+
 
 Depending on the view point request and response will be information from 
 the client that is needed

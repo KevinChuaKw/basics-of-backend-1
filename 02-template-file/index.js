@@ -1,11 +1,25 @@
 const express = require('express'); 
-
 const app = express(); 
+
+// configure Express to use HBS
+app.set("view engine", "hbs"); 
+
+// configure Express to send back static files
+// express.static is function call to Express which will
+// setup the static files and the string parameter
+// is the name of the folder to find those files
+app.use(express.static("public")); 
+
+
 // ROUTES 
+app.get("/", function(req, res){
+    // we want our response to be the content of the file 'views\index.hbs'
+    res.send("index.hbs"); // express allows us to send back the entire file - this is know as tempates
+    }) 
 
 
 // START SERVER 
-app.listen(3000, function(){ 
+app.listen(3001, function(){ // one port can only be used by one software at a time
     console.log("Server has started") 
    });
 
