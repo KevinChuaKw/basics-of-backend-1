@@ -7,6 +7,7 @@
 if is usingyour own computer, then just once. The `-g` means `global` -- it will be 
 applied to all node applications
 6. To stop the server 'control + c`
+7. To run the nodemon enter 'npx nodemon' into the terminal 
 
 
 Depending on the view point request and response will be information from 
