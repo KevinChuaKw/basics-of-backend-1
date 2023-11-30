@@ -14,9 +14,17 @@ app.use(express.static("public"));
 app.get("/", function(req, res){
     // we want our response to be the content of the file 'views\index.hbs'
     const today = new Date(); // creating a new date object, it will automatically be today's date (on the server)
-    res.send("index.hbs"); // express allows us to send back the entire file - this is know as tempates
+    res.render("index.hbs", {
+            "todayDate": today,
+            "name": "Kevin Chua"
+        }); // express allows us to send back the entire file - this is know as tempates
     }) 
 
+app.get('/about-us', function(req,res){
+    res.render('about', {
+        "name": "Kevin Chua"
+    })
+})
 
 // START SERVER 
 app.listen(3001, function(){ // one port can only be used by one software at a time
