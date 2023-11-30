@@ -10,10 +10,10 @@ app.set("view engine", "hbs");
 // is the name of the folder to find those files
 app.use(express.static("public")); 
 
-
 // ROUTES 
 app.get("/", function(req, res){
     // we want our response to be the content of the file 'views\index.hbs'
+    const today = new Date(); // creating a new date object, it will automatically be today's date (on the server)
     res.send("index.hbs"); // express allows us to send back the entire file - this is know as tempates
     }) 
 
@@ -22,4 +22,5 @@ app.get("/", function(req, res){
 app.listen(3001, function(){ // one port can only be used by one software at a time
     console.log("Server has started") 
    });
+
 

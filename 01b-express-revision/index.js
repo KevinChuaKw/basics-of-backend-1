@@ -13,8 +13,9 @@ app.get("/", function(req, res){
 // ':firstName" is a place holder (URL parameter). The name of the placeholder is 'firstName'
 // /hello/paul then it means the `firstName` parameter should contain `paul`
 // /hello/kevin then it means the `firstName` parameter should contain `kevin`
-app.get("/hello/:firstName/:lastName", function(req,res){ // within the route, I cannot have 2 of the same 'words' in the route. 
-    res.send("Hello"); 
+app.get("/hello/:name", function(req,res){ // within the route, I cannot have 2 of the same 'words' in the route. 
+    let name = req.params.name;
+    res.send("Hi, "+name); 
 })
 
 // Query strings 
