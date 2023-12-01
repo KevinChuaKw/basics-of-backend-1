@@ -22,6 +22,7 @@ is index.js, the line to use would be `node index.js`
 
 9. To add handlebars enter 'yarn add hbs' into the terminal
 
+10. To add wax-on enter 'yarn add wax-on' into the terminal 
 
 Depending on the view point request and response will be information from 
 the client that is needed

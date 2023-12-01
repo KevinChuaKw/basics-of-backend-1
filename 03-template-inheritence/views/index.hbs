@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Japanese Dining</title>
-    <link rel="stylesheet" href="../style.css">
-</head>
-<body>
-    <h1 id = "title">Welcome to the Jungle, {{name}}</h1>
-    <h2>The cow jumps over the wall</h2>
-    <h3 id = "paragraph">The following is a random piece of text</h3>
-    <script src="script.js"></script>
-</body>
-</html>
+{{#extends "base"}}
+
+{{#block "content"}}
+    <h1>Kevin sells pork buns</h1>
+    <p>Random words</p>
+{{/block}}
+
+{{#block "title"}}
+Home 
+{{/block}}
+
+{{/extends}}
