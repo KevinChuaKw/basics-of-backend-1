@@ -1,0 +1,21 @@
+{{#extends "base"}}
+
+{{#block "content"}}
+    <form method = "POST">
+        <div>
+            <label>Food name: </label>
+            <input type "text" name= "foodName" class = "form-control"/>
+        </div>
+        <div>
+            <label>Calories name: </label>
+            <input type "text" name= "calories" class = "form-control"/>
+        </div>
+        <input type="submit" class="btn btn-primary mt-3"> 
+    </form>
+{{/block}}
+
+{{#block "title"}}
+Home 
+{{/block}}
+
+{{/extends}}
