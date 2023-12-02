@@ -36,24 +36,26 @@ app.get("/add-food", function(req,res){
 
 // We want to add a route for POST / add-food
 // From the point of view from the user 
-app.post("/add-food", function(req,res){
-    const foodName = req.body.foodName; 
-    const calories = req.body.calories; 
-    res.render("food-summary", {
-        foodName:foodName,
-        calories:calories
-    }); 
-})
-
-// faster way by using destructing syntax to extract many keys from an object at one go
-// app.post("/add-food", function (req,res){
-//     const {foodName, calories} = req.body;
+// app.post("/add-food", function(req,res){
+//     const foodName = req.body.foodName; // it is defualt .body - there is no link to the hbs file body
+//     const calories = req.body.calories; 
+    
 //     res.render("food-summary", {
-//         foodName,
-//         calories
-//     })
+//         foodName:foodName,
+//         calories:calories
+//     }); 
 // })
 
+// faster way by using destructing syntax to extract many keys from an object at one go
+app.post("/add-food", function (req,res){
+    const {foodName, calories, meal, cuisine} = req.body;
+    res.render("food-summary", {
+        foodName,
+        calories,
+        meal,
+        cuisine
+    })
+})
 
 // START SERVER 
 app.listen(3002, function(){ 

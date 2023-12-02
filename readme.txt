@@ -37,6 +37,10 @@ The children can override this if there is block for 'title'
 
 14. app.use(express.static("public")); is very important for taking static files
 
+15. In the hbs file, when we tag the div, 'id' and 'class' are ignored. Only the 'name' is picked up
+thats why we use 'name' more
+
+
 
 Depending on the view point request and response will be information from 
 the client that is needed
