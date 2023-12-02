@@ -1,0 +1,50 @@
+{{!-- What is common through out all the hbs files will by put here --}}
+{{!-- This is the parent content hbs file --}}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+        crossorigin="anonymous">
+
+    <title>{{#block "title"}}{{/block}}</title>
+</head>
+
+<body>
+    <div class="container">
+        <!-- A grey horizontal navbar that becomes vertical on small screens -->
+        <nav class="navbar navbar-expand-sm bg-light">
+            <div class="container-fluid">
+                <!-- Links -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about-us">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact-us">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        {{#block "content"}} 
+        {{/block}}
+        {{!-- This block is a space for the other hbs files to latch on to, where the other files are able to 
+        fill this space with the contact specific to each individal hbs file --}}
+    </div>
+
+</body>
+
+</html>
