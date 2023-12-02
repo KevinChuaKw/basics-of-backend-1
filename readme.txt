@@ -24,6 +24,16 @@ is index.js, the line to use would be `node index.js`
 
 10. To add wax-on enter 'yarn add wax-on' into the terminal 
 
+11. If we never set app.set view engine, you need to put the
+extension at the back of the hbs file. I.e. to put 'index.hbs'
+when you want to render the hbs file
+
+12. Any part of the base hbs file that will be different. You 
+will replace with a 'block'
+You can also set the default 'title' using the base file
+The children can override this if there is block for 'title'
+
+
 Depending on the view point request and response will be information from 
 the client that is needed
 
