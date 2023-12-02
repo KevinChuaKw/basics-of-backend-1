@@ -33,6 +33,10 @@ will replace with a 'block'
 You can also set the default 'title' using the base file
 The children can override this if there is block for 'title'
 
+13. HBS file is not a HTML file
+
+14. app.use(express.static("public")); is very important for taking static files
+
 
 Depending on the view point request and response will be information from 
 the client that is needed
