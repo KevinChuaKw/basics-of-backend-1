@@ -129,7 +129,7 @@ app.post("/fruits", function (req,res){
         "banana":4,
         "durian":15
     }
-
+    // Why does the number double? 
     let total = 0; 
     for (let item of selectedItems) {
         if (item=="durian") {
