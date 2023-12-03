@@ -1,0 +1,24 @@
+{{#extends "base"}}
+
+{{#block "content"}}
+    <form method = "POST">
+        <div>
+            <label>Number 1</label>
+            <input type ="text" name="num1"/>
+            <label>Number 2</label>
+            <input type ="text" name="num2"/>
+        </div>  
+        <div>
+            <label>Operation</label>
+            <input type = "radio" name = "operator" value = "add" checked/><Label>Add</Label>
+            <input type = "radio" name = "operator" value = "subtract" /><Label>Subtract</Label>
+            <input type = "radio" name = "operator" value = "multiply" /><Label>Multiply</Label>
+            <input type = "radio" name = "operator" value = "divide" /><Label>Divide</Label>
+        </div>
+
+        <input type="submit" class="btn btn-primary mt-3"/>
+    </form>
+
+{{/block}}
+
+{{/extends}}

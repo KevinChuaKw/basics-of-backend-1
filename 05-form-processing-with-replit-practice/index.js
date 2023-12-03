@@ -16,6 +16,8 @@ app.use(express.urlencoded({
     // if it is extended true - For very complicated forms i.e. object in object, array in object
 }))
 
+app.use(express.static("public")); // to be able to access static files in the public folder i.e. png files (pictures)
+
 // ROUTES 
 app.get("/", function(req, res){
     res.render("index"); 
@@ -56,6 +58,54 @@ app.post("/add-food", function (req,res){
         cuisine
     })
 })
+
+// Replit practice
+
+app.get("/bmi", function(req,res){
+    res.render('bmi'); 
+})
+
+app.post("/bmi", function (req,res){
+    const weight = Number(req.body.weight);
+    const height = Number(req.body.height);
+    const bmi = weight / (height/100)**2;
+    res.render('bmi-results', {
+        bmi:bmi
+    })
+})
+
+app.get("/math", function(req,res){
+    res.render('math'); 
+})
+
+app.post("/math", function (req,res){
+    let {num1,num2,operator} = req.body;
+    num1 = parseInt(num1);
+    num2 = parseInt(num2); 
+
+    if (!operator){
+        res.send("No operator selected");
+        return; // This is the of the function
+    }
+
+    let result = 0;
+    if (operator =="add"){
+        result = num1 + num2; 
+    } else if (operator =="subtract"){
+        result = num1 - num2; 
+    } else if (operator =="multiply"){
+        result = num1*num2; 
+    } else {
+        result = num1/num2; 
+    }
+    res.send("Result =", result); 
+})
+
+
+
+
+
+
 
 // START SERVER 
 app.listen(3002, function(){ 
