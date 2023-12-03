@@ -89,16 +89,72 @@ app.post("/math", function (req,res){
     }
 
     let result = 0;
-    if (operator =="add"){
+    if (operator == "add"){
         result = num1 + num2; 
-    } else if (operator =="subtract"){
+    } else if (operator == "subtract"){
         result = num1 - num2; 
-    } else if (operator =="multiply"){
+    } else if (operator == "multiply"){
         result = num1*num2; 
     } else {
         result = num1/num2; 
     }
-    res.send("Result =", result); 
+    
+    // why can't I use the res.send as I will get the following error - 
+    // "RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: 4"
+    res.render('math-result', {
+        result:result
+    }) 
+
+})
+
+app.get("/fruits", function(req,res){
+    res.render('fruits'); 
+})
+
+app.post("/fruits", function (req,res){
+    // There are 3 possible outcomes:
+    // 1. undefined (empty array)
+    // 2. one single string (array with one string)
+    // 3. an array (keep the same)
+    const items = req.body.items;
+    let selectedItems = [];
+
+    if (items){
+        selectedItems = Array.isArray(items)?items:[items]; 
+    }
+
+    const fruitsPricing = {
+        "apple": 3,
+        "orange": 6, 
+        "banana":4,
+        "durian":15
+    }
+
+    let total = 0; 
+    for (let item of selectedItems) {
+        if (item=="durian") {
+            total += 15;
+        } else if (item=="apple") {
+            total += 3;
+        } else if (item=="orange") {
+            total += 6;
+        } else if (item=="banana") {
+            total += 4;
+        }
+    }
+
+    for (let item of selectedItems){
+        if(fruitsPricing[item]){
+            total +=fruitsPricing[item]; 
+        }
+    }
+
+    console.log(selectedItems)
+
+    res.render('fruits-result', {
+        total:total
+    }) 
+
 })
 
 
