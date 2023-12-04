@@ -64,12 +64,34 @@ app.get('/add-food', function(req,res){
 })
 
 app.post('/add-food', function(req,res){
-    
+    res.send("This is for adding food"); 
 })
 
 // app.post("/add-food", function (req,res){
     
 // })
+
+
+// Route display the confirmation of delete
+
+app.get("/delete-posting/:postingId", functions (req,res){
+    
+    // 1. Get the ID of the record from the URL parameters
+    const postingId = req.params.postingId;
+    // 2. Find the record from the database
+    res.send(postingId); 
+
+        // match by their id 
+})
+
+// there are differences between filter and find 
+// filter will give you back a array of items 
+// find will give you one item only 
+
+
+// foreach is another way to do the for loop 
+// it is not a very popular and well used 
+
 
 
 // END ROUTES 

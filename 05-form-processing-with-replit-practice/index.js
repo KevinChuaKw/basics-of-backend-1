@@ -157,7 +157,6 @@ app.post("/fruits", function (req,res){
 
 })
 
-
 // START SERVER 
 app.listen(3002, function(){ 
     console.log("Server has started") 
