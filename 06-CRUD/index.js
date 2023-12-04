@@ -77,9 +77,9 @@ app.post('/add-food', function(req,res){
 app.get("/delete-posting/:postingId", functions (req,res){
     
     // 1. Get the ID of the record from the URL parameters
-    const postingId = req.params.postingId;
+    const postingId = req.params.postingId
     // 2. Find the record from the database
-    res.send(postingId); 
+     
 
         // match by their id 
 })
@@ -91,6 +91,13 @@ app.get("/delete-posting/:postingId", functions (req,res){
 
 // foreach is another way to do the for loop 
 // it is not a very popular and well used 
+
+
+
+
+// converting a funtion into a arrow function 
+
+
 
 
 
