@@ -77,7 +77,8 @@ app.post('/add-food', function(req,res){
 app.get("/delete-posting/:postingId", functions (req,res){
     
     // 1. Get the ID of the record from the URL parameters
-    const postingId = req.params.postingId
+    
+    
     // 2. Find the record from the database
      
 
