@@ -101,6 +101,9 @@ app.get("/delete-posting/:postingId", functions (req,res){
 
 
 
+// When putting in {{}} you can put in a handlebar helper within the {{}} in the hbs file for helpers in the hbs filter
+
+
 
 // END ROUTES 
 
