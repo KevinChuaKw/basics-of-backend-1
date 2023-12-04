@@ -25,15 +25,46 @@ require('handlebars-helpers')({
     handlebars: hbs.handlebars
 })
 
+// Sample hardcoded data for testing 
+
+let foodRecords =[
+    {
+        "id": 12345,
+        "foodName": "Duck Rice",
+        "calories": 450,
+        "meal": "lunch", 
+        "tags": ["less-oil", "low-fat"]
+    },
+    {
+        "id": Math.floor(Math.random()*10000)+1,
+        "foodName": "Duck Rice",
+        "calories": 450,
+        "meal": "lunch", 
+        "tags": ["less-oil", "low-fat"]
+    },
+    {
+        "id": Math.floor(Math.random()*10000)+1,
+        "foodName": "Duck Rice",
+        "calories": 450,
+        "meal": "lunch", 
+        "tags": ["less-oil", "low-fat"]
+    }, 
+]
+
 //ROUTES HERE
 
 app.get("/", function(req, res){
-    res.render("index"); 
+    res.render("index", {
+            foodRecords: foodRecords
+        })
     }) 
 
-app.post("/add-food", function (req,res){
+
+
+
+// app.post("/add-food", function (req,res){
     
-})
+// })
 
 
 // END ROUTES 
