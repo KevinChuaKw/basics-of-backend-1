@@ -129,7 +129,7 @@ app.post("/fruits", function (req,res){
         "banana":4,
         "durian":15
     }
-    // Why does the number double? 
+    // Why does the number double and not show the actual number that is being added when I check off the list? 
     let total = 0; 
     for (let item of selectedItems) {
         if (item=="durian") {
@@ -156,11 +156,6 @@ app.post("/fruits", function (req,res){
     }) 
 
 })
-
-
-
-
-
 
 
 // START SERVER 
