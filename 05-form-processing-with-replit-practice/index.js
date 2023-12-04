@@ -100,10 +100,8 @@ app.post("/math", function (req,res){
     }
     
     // why can't I use the res.send as I will get the following error - 
-    // "RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: 4"
-    res.render('math-result', {
-        result:result
-    }) 
+    // "RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: 4" - The res.send needs to throw back a string not an integer
+    res.send("Your result is:" +result); 
 
 })
 
@@ -130,6 +128,7 @@ app.post("/fruits", function (req,res){
         "durian":15
     }
     // Why does the number double and not show the actual number that is being added when I check off the list? 
+    // There are 2 seperate for loops that is running and this is why it is doubling the value
     let total = 0; 
     for (let item of selectedItems) {
         if (item=="durian") {
@@ -143,11 +142,12 @@ app.post("/fruits", function (req,res){
         }
     }
 
-    for (let item of selectedItems){
-        if(fruitsPricing[item]){
-            total +=fruitsPricing[item]; 
-        }
-    }
+    // Different way of running the above for loop 
+    // for (let item of selectedItems){
+    //     if(fruitsPricing[item]){
+    //         total +=fruitsPricing[item]; 
+    //     }
+    // }
 
     console.log(selectedItems)
 

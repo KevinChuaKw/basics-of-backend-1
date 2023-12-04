@@ -59,8 +59,13 @@ app.get("/", function(req, res){
         })
     }) 
 
+app.get('/add-food', function(req,res){
+    res.render("add-food"); 
+})
 
-
+app.post('/add-food', function(req,res){
+    
+})
 
 // app.post("/add-food", function (req,res){
     
