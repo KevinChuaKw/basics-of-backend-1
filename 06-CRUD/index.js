@@ -1,28 +1,21 @@
-// const means never changes - short for constant
-const express = require('express');
+const express = require('express'); 
 const hbs = require('hbs');
-const wax = require('wax-on');
+const wax = require('wax-on'); 
 
-// creates a new instance of an express application
-// the `app` variable shouldn't be changed
-const app = express();
+const app = express(); 
 
-// set up the view engine
-app.set('view engine', 'hbs'); 
+app.set('view engine','hbs'); 
+
+app.use(express.urlencoded({
+    "extended": false
+}))
+
+wax.on(hbs.handlebars); 
+wax.setLayoutPath("./views/layouts"); 
+
 app.use(express.static('public')); 
 
-// enable forms
-app.use(express.urlencoded({
-    extended: false
-})); 
-
-// setup wax-on so that it will work with HBS 
-wax.on(hbs.handlebars);
-wax.setLayoutPath('./views/layouts'); 
-
-
-// require in 188 handlebar helpers
-require('handlebars-helpers')({
+const helpers = require('handlebars-helpers')({
     handlebars: hbs.handlebars
 })
 
@@ -30,45 +23,44 @@ require('handlebars-helpers')({
 
 let foodRecords =[
     {
-        "id": 12345,
-        "foodName": "Duck Rice",
-        "calories": 450,
-        "meal": "lunch", 
-        "tags": ["less-oil", "low-fat"]
+        id: 12345,
+        foodName: "Duck Rice",
+        calories: 450,
+        meal: "lunch", 
+        tags: ["less-oil", "low-fat"]
     },
     {
-        "id": Math.floor(Math.random()*10000)+1,
-        "foodName": "Chicken Rice",
-        "calories": 900,
-        "meal": "Breakfast", 
-        "tags": ["organic"]
+        id: Math.floor(Math.random()*10000)+1,
+        foodName: "Chicken Rice",
+        calories: 900,
+        meal: "Breakfast", 
+        tags: ["organic"]
     },
     {
-        "id": Math.floor(Math.random()*10000)+1,
-        "foodName": "Mixed Rice",
-        "calories": 834,
-        "meal": "Dinner", 
-        "tags": ["less-oil", "home-cooked", "organic", "healthy"]
+        id: Math.floor(Math.random()*10000)+1,
+        foodName: "Mixed Rice",
+        calories: 834,
+        meal: "Dinner", 
+        tags: ["less-oil", "home-cooked", "organic", "healthy"]
     }, 
     {
-        "id": Math.floor(Math.random()*10000)+1,
-        "foodName": "Roasted Pork Rice",
-        "calories": 435,
-        "meal": "lunch", 
-        "tags": ["less-oil", "healthy"]
+        id: Math.floor(Math.random()*10000)+1,
+        foodName: "Roasted Pork Rice",
+        calories: 435,
+        meal: "lunch", 
+        tags: ["less-oil", "healthy"]
     }, 
 ]
 
 // ROUTES HERE
 // Known as the index Route 
 // Where the 'r' is implemented
-app.get("/", function(req,res){
-    // to fetch all the records in the database
-    // and display them
-    res.render("index.hbs", {
-            "foodRecords": foodRecords
-        })
-    }) 
+
+app.get('/', function(req,res){
+    res.render("index",{
+        "foodRecords":foodRecords
+    })
+})
 
 // app.get('/add-food', function(req,res){
 //     res.render("add-food"); 
@@ -118,7 +110,6 @@ app.get("/", function(req,res){
 
 // END ROUTES 
 
-// Server
-app.listen(3090, function(){
-    console.log("Server has started"); 
+app.listen(3010, function(){
+    console.log("Server has started");
 })
