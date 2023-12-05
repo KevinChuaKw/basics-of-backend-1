@@ -1,8 +1,27 @@
-{{#extends 'base'}}
+{{#extends "base"}}
 
-{{#extends 'content'}}
-
-    <h1>This is a testing paragraph</h1>
+{{#extends "content"}}
+    <table class= "table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Calories</th>
+                <th>Meal</th>
+                <th>Tags</th> 
+            </tr>       
+        </thead>
+        <tbody>
+            {{#each foodRecords}}
+            <tr>
+                <td>{{this.id}}</td>
+                <td>{{this.foodName}}</td>
+                <td>{{this.calories}}</td>
+                <td>{{this.meal}}</td>
+                <td>{{this.tags}}</td>  
+            
+            </tr>
+            {{/each}}
+        </tbody>
 
 {{/extends}}
 

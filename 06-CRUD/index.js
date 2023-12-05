@@ -18,7 +18,8 @@ app.use(express.urlencoded({
 
 // setup wax-on so that it will work with HBS 
 wax.on(hbs.handlebars);
-wax.setLayoutPath('./views/layouts');
+wax.setLayoutPath('./views/layouts'); 
+
 
 // require in 188 handlebar helpers
 require('handlebars-helpers')({
@@ -37,35 +38,45 @@ let foodRecords =[
     },
     {
         "id": Math.floor(Math.random()*10000)+1,
-        "foodName": "Duck Rice",
-        "calories": 450,
-        "meal": "lunch", 
-        "tags": ["less-oil", "low-fat"]
+        "foodName": "Chicken Rice",
+        "calories": 900,
+        "meal": "Breakfast", 
+        "tags": ["organic"]
     },
     {
         "id": Math.floor(Math.random()*10000)+1,
-        "foodName": "Duck Rice",
-        "calories": 450,
+        "foodName": "Mixed Rice",
+        "calories": 834,
+        "meal": "Dinner", 
+        "tags": ["less-oil", "home-cooked", "organic", "healthy"]
+    }, 
+    {
+        "id": Math.floor(Math.random()*10000)+1,
+        "foodName": "Roasted Pork Rice",
+        "calories": 435,
         "meal": "lunch", 
-        "tags": ["less-oil", "low-fat"]
+        "tags": ["less-oil", "healthy"]
     }, 
 ]
 
-//ROUTES HERE
-
-app.get("/", function(req, res){
-    res.render("index", {
-            foodRecords: foodRecords
+// ROUTES HERE
+// Known as the index Route 
+// Where the 'r' is implemented
+app.get("/", function(req,res){
+    // to fetch all the records in the database
+    // and display them
+    res.render("index.hbs", {
+            "foodRecords": foodRecords
         })
     }) 
 
-app.get('/add-food', function(req,res){
-    res.render("add-food"); 
-})
+// app.get('/add-food', function(req,res){
+//     res.render("add-food"); 
+// })
 
-app.post('/add-food', function(req,res){
-    res.send("This is for adding food"); 
-})
+// app.post('/add-food', function(req,res){
+//     res.send("This is for adding food"); 
+// })
 
 // app.post("/add-food", function (req,res){
     
@@ -74,7 +85,7 @@ app.post('/add-food', function(req,res){
 
 // Route display the confirmation of delete
 
-app.get("/delete-posting/:postingId", functions (req,res){
+// app.get("/delete-posting/:postingId", functions (req,res){
     
     // 1. Get the ID of the record from the URL parameters
     
@@ -83,7 +94,7 @@ app.get("/delete-posting/:postingId", functions (req,res){
      
 
         // match by their id 
-})
+// })
 
 // there are differences between filter and find 
 // filter will give you back a array of items 
