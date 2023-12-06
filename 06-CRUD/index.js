@@ -110,6 +110,6 @@ app.get('/', function(req,res){
 
 // END ROUTES 
 
-app.listen(3010, function(){
+app.listen(3019, function(){
     console.log("Server has started");
 })
