@@ -92,7 +92,20 @@ app.post('/add-food', function(req,res){
 
 })
 
+app.get('/edit-food/:foodId', function(req,res){
+    // To get the food record by its food id
+    let foodRecord = null;
+    for (let record of foodRecords){
+        if (record.id == parseInt(req.params.foodId)){
+            foodRecord = record; 
+            break; 
+        }
+    }
 
+    res.render('edit-food', {
+        foodRecord:foodRecord
+    })
+})
 
 // Route display the confirmation of delete
 
@@ -116,16 +129,10 @@ app.post('/add-food', function(req,res){
 // it is not a very popular and well used 
 
 
-
-
 // converting a funtion into a arrow function 
 
 
-
-
 // When putting in {{}} you can put in a handlebar helper within the {{}} in the hbs file for helpers in the hbs filter
-
-
 
 // END ROUTES 
 
