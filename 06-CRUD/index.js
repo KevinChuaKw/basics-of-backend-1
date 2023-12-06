@@ -62,17 +62,36 @@ app.get('/', function(req,res){
     })
 })
 
-// app.get('/add-food', function(req,res){
-//     res.render("add-food"); 
-// })
+app.get('/add-food', function(req,res){
+    res.render('add-food'); 
+})
 
-// app.post('/add-food', function(req,res){
-//     res.send("This is for adding food"); 
-// })
 
-// app.post("/add-food", function (req,res){
-    
-// })
+app.post('/add-food', function(req,res){
+    // extracting data from from and massage them if necessary
+    const {foodName, calories, meal, tags} = req.body; 
+    let selectedTags = [];
+    if (tags){
+        selectedTags = Array.isArray(tags) ? tags : [tags];
+    }; 
+
+    // creating the new record
+    const newFoodRecord = {
+        id: Math.floor(Math.random()*10000 + 1),
+        foodName: foodName,
+        calories: calories, 
+        meal: meal, 
+        tags: tags
+    }
+
+    // add to the "database"
+    foodRecords.push(newFoodRecord); 
+
+    // inform the browser (i.e. the client) to go to a new URL 
+    res.redirect('/'); 
+
+})
+
 
 
 // Route display the confirmation of delete
