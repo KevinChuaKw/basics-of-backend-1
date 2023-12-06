@@ -40,6 +40,7 @@ The children can override this if there is block for 'title'
 15. In the hbs file, when we tag the div, 'id' and 'class' are ignored. Only the 'name' is picked up
 thats why we use 'name' more
 
+16. To enable CORS, when using the terminal, 'yarn add cors'
 
 
 Depending on the view point request and response will be information from 
