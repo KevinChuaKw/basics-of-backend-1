@@ -12,21 +12,20 @@
     </div>
     <div>
         <label>Meal:</label>
-        <input type = "radio" name="meal" value="breakfast" checked/><label>Breakfast</label>
+        <input type = "radio" name="meal" value="breakfast" checked /><label>Breakfast</label>
         <input type = "radio" name="meal" value="lunch" /><label>Lunch</label>
         <input type = "radio" name="meal" value="dinner" /><label>Dinner</label>
     </div>
     <div>
-        <input type = "checkbox" name="tags" value="organic" checked/><label>Organic</label>
-        <input type = "checkbox" name="tags" value="less-oil"/><label>Less Oil</label>
-        <input type = "checkbox" name="tags" value="home-cooked" /><label>Home Cooked</label>
-        <input type = "checkbox" name="tags" value="healthy" /><label>Healthy</label>
+        <input type = "checkbox" name="tags" value="organic" {{#inArray postingToEdit.meal "organic"}}checked{{/inArray}}/><label>Organic</label>
+        <input type = "checkbox" name="tags" value="less-oil" {{#inArray postingToEdit.meal "less-oil"}}checked{{/inArray}}/><label>Less Oil</label>
+        <input type = "checkbox" name="tags" value="home-cooked" {{#inArray postingToEdit.meal "home-cooked"}}checked{{/inArray}}/><label>Home Cooked</label>
+        <input type = "checkbox" name="tags" value="healthy" {{#inArray postingToEdit.meal "healthy"}}checked{{/inArray}}/><label>Healthy</label>
     </div>
 
     <input type = "submit" class = "btn btn-primary mt-3"/>
 
 </form>
-
 
 {{/block}}
 
