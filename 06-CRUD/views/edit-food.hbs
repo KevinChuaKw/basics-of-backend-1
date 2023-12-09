@@ -10,17 +10,20 @@
         <label>Calories:</label>   
         <input type ="text" name="calories" class="form-control" value="{{foodRecord.calories}}"/>
     </div>
+    {{!-- When putting in {{}} you can put in a handlebar helper within the {{}} in the hbs file for helpers in the hbs filter
+ --}}
     <div>
         <label>Meal:</label>
-        <input type = "radio" name="meal" value="breakfast" checked /><label>Breakfast</label>
-        <input type = "radio" name="meal" value="lunch" /><label>Lunch</label>
-        <input type = "radio" name="meal" value="dinner" /><label>Dinner</label>
+        <input type = "radio" name="meal" value="breakfast" {{#eq postingToEdit.meal "breakfast"}}checked{{/eq}}/><label>Breakfast</label>
+        <input type = "radio" name="meal" value="lunch" {{#eq postingToEdit.meal "lunch"}}checked{{/eq}}/><label>Lunch</label>
+        <input type = "radio" name="meal" value="dinner" {{#eq postingToEdit.meal "dinner"}}checked{{/eq}}/><label>Dinner</label>
     </div>
     <div>
-        <input type = "checkbox" name="tags" value="organic" {{#inArray postingToEdit.meal "organic"}}checked{{/inArray}}/><label>Organic</label>
-        <input type = "checkbox" name="tags" value="less-oil" {{#inArray postingToEdit.meal "less-oil"}}checked{{/inArray}}/><label>Less Oil</label>
-        <input type = "checkbox" name="tags" value="home-cooked" {{#inArray postingToEdit.meal "home-cooked"}}checked{{/inArray}}/><label>Home Cooked</label>
-        <input type = "checkbox" name="tags" value="healthy" {{#inArray postingToEdit.meal "healthy"}}checked{{/inArray}}/><label>Healthy</label>
+        <label>Tags:</label>
+        <input type="checkbox" name="tags" value="organic" {{#if postingToEdit.tags}}{{#inArray "organic" postingToEdit.tags}}checked{{/inArray}}{{/if}}/><label>Organic</label>
+        <input type="checkbox" name="tags" value="less-oil" {{#if postingToEdit.tags}}{{#inArray "less-oil" postingToEdit.tags}}checked{{/inArray}}{{/if}}/><label>Less Oil</label>
+        <input type="checkbox" name="tags" value="home-cooked" {{#if postingToEdit.tags}}{{#inArray "home-cooked" postingToEdit.tags}}checked{{/inArray}}{{/if}}/><label>Home Cooked</label>
+        <input type="checkbox" name="tags" value="healthy" {{#if postingToEdit.tags}}{{#inArray "healthy" postingToEdit.tags}}checked{{/inArray}}{{/if}}/><label>Healthy</label>
     </div>
 
     <input type = "submit" class = "btn btn-primary mt-3"/>

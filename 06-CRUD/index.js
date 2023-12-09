@@ -92,6 +92,13 @@ app.post('/add-food', function(req,res){
 
 })
 
+
+
+
+
+
+
+
 app.get('/edit-food/:foodId', function(req,res){
     // To get the food record by its food id
     let foodRecord = null;
@@ -105,6 +112,28 @@ app.get('/edit-food/:foodId', function(req,res){
     res.render('edit-food', {
         foodRecord:foodRecord
     })
+})
+
+app.post('/edit-food/:foodId', function (req,res){
+    // get the index of the food that we want to change
+    const indexToEdit = foodRecords.findIndex(f => f.id === parseInt(req.params.foodId)); 
+    if (indexToEdit != -1){
+        // get the date from the from 
+        let {foodName, calories, meal, tags} = req.body; 
+        if (tags) {
+            tags = Array.isArray(tags) ? tags : [tags];
+        } else {
+            tags = []; 
+        }
+        const modifiedFood = {
+            id: parseInt(req.params.foodId), foodName, calories, meal, tags
+        }
+
+        foodRecords[indexToEdit] = modifiedFood; 
+        console.log(foodRecord)
+    }
+
+    res.redirect('/');
 })
 
 // Route display the confirmation of delete
